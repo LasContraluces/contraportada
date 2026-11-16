@@ -1,0 +1,19 @@
+{
+  "lista": [
+    {
+      "titulo": "Coyote vs. Acme",
+      "frase": "Un juicio contra Acme que llegó por los pelos",
+      "url": "https://lascontraluces.com/reviews/coyote-vs-acme.html"
+    },
+    {
+      "titulo": "Primetime",
+      "frase": "Una historia bastante extraña detrás de las cámaras",
+      "url": "https://lascontraluces.com/reviews/primetime.html"
+    },
+    {
+      "titulo": "Hope",
+      "frase": "Dos horas y media persiguiendo a algo que no deja de correr",
+      "url": "https://lascontraluces.com/reviews/hope.html"
+    }
+  ]
+}

@@ -59,7 +59,7 @@ Temas: estrenos de cine, series y plataformas. Cada noticia lleva enlace a la fu
 
 ## Imágenes
 
-Salen de dos sitios, y de ninguno más:
+Salen de estos sitios, y de ninguno más:
 
 1. **TMDB.** Cada noticia sobre una película o serie lleva el campo `tmdb` con su referencia: `"movie/1567605"` o `"tv/95480"`. Es el final de la URL de su ficha en themoviedb.org, sin el nombre. Se encuentra buscando en la web el título junto a «themoviedb.org» (las fichas no se pueden abrir con WebFetch, pero la URL del resultado basta). Comprobar que el año y el director coinciden antes de usarla.
 2. **Vídeo oficial en YouTube.** En los tráilers, y en cualquier noticia que tenga un vídeo oficial (un anuncio del estudio, por ejemplo), el campo `video` lleva el identificador del vídeo (lo que va tras `v=` en la URL), siempre del canal oficial del estudio o la plataforma. La página de la noticia incrusta el vídeo, y si la noticia es la apertura, también la portada en lugar de la foto. Nunca vídeos de cuentas que solo republican (DiscussingFilm, Culture Crave...).
@@ -68,5 +68,6 @@ Salen de dos sitios, y de ninguno más:
 
 - `pie_imagen` es el texto alternativo de la foto: «Imagen de «Título»».
 - Si la noticia no va de una película o serie concreta (una negociación sindical, un fichaje para un proyecto sin ficha), se deja sin `tmdb` y sale sin foto. No pasa nada.
-- Nunca fotos de los medios (Deadline, Variety...), de agencias ni retratos de personas. Tampoco las fotos de perfil de actores de TMDB.
-- `imagen` y `credito_imagen` permiten poner a mano una URL concreta; solo si Jose lo pide.
+- Nunca fotos de los medios (Deadline, Variety...) ni de agencias.
+- Fotos de personas (actores, directores...): se pueden poner cuando Jose las pasa. Van con `imagen` y `credito_imagen`, con el crédito que él indique.
+- `imagen` y `credito_imagen` permiten poner a mano una foto concreta; solo si Jose la pasa o lo pide.

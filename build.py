@@ -176,8 +176,9 @@ def pagina(titulo, descripcion, cuerpo, activa="", ruta="/", hoy=None):
 
 
 def tarjeta(n):
+    medio = video(n) if n["seccion"] == "trailers" and n.get("video") else foto(n)
     return f"""<article class="tarjeta">
-{foto(n)}
+{medio}
 <div class="meta">{etiqueta(n)}<span>{fecha_corta(n["dt"])} · {e(nombres_fuentes(n))}</span></div>
 <h3><a href="{enlace(n)}">{e(n["titulo"])}</a></h3>
 <p>{e(n.get("resumen") or n["entradilla"])}</p>
@@ -186,7 +187,7 @@ def tarjeta(n):
 
 def fila(n):
     return f"""<article class="fila">
-{foto(n)}
+{video(n) if n.get("video") else foto(n)}
 <div class="texto">
 <h3><a href="{enlace(n)}">{e(n["titulo"])}</a></h3>
 <p>{e(n.get("resumen") or n["entradilla"])}</p>

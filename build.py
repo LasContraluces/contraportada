@@ -105,6 +105,12 @@ def imagen_de(n):
     return None, ""
 
 
+def video(n):
+    return (f'<div class="video"><iframe src="https://www.youtube-nocookie.com/embed/{e(n["video"])}" '
+            f'title="Vídeo: {e(n["titulo"])}" loading="lazy" '
+            f'allow="encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe></div>')
+
+
 def foto(n, enlazar=True):
     url, _ = imagen_de(n)
     if not url:
@@ -236,7 +242,7 @@ def portada(noticias, hoy):
 
     cuerpo = f"""<section class="apertura">
 <article class="principal">
-{foto(principal)}
+{video(principal) if principal.get("video") else foto(principal)}
 <div class="meta">{etiqueta(principal)}<span>{fecha_corta(principal["dt"])}</span></div>
 <h1><a href="{enlace(principal)}">{e(principal["titulo"])}</a></h1>
 <p class="entradilla">{e(principal["entradilla"])}</p>
@@ -274,7 +280,7 @@ def pagina_noticia(n, noticias, hoy):
     fuentes = ", ".join(f'<a href="{e(f["url"])}" rel="noopener">{e(f["nombre"])}</a>' for f in n.get("fuentes", []))
     otras = [o for o in noticias if o is not n][:3]
     if n.get("video"):
-        medio = f'<div class="video"><iframe src="https://www.youtube-nocookie.com/embed/{e(n["video"])}" title="Tráiler de {e(n["titulo"])}" loading="lazy" allow="encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe></div>'
+        medio = video(n)
     else:
         _, credito = imagen_de(n)
         medio = foto(n, enlazar=False)

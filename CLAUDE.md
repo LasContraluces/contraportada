@@ -32,7 +32,7 @@ Se publica con GitHub Pages en https://contraportada.lascontraluces.com (rama `m
   "resumen": "Opcional. Versión más corta para las tarjetas.",
   "cuerpo": ["Párrafo 1.", "Párrafo 2."],
   "tmdb": "movie/1567605",
-  "video": "Solo en tráilers: identificador del vídeo de YouTube",
+  "video": "Opcional: identificador de un vídeo oficial de YouTube",
   "pie_imagen": "Imagen de «Título»",
   "fuentes": [{"nombre": "Deadline", "url": "https://..."}]
 }
@@ -61,7 +61,7 @@ Temas: estrenos de cine, series y plataformas. Cada noticia lleva enlace a la fu
 Salen de dos sitios, y de ninguno más:
 
 1. **TMDB.** Cada noticia sobre una película o serie lleva el campo `tmdb` con su referencia: `"movie/1567605"` o `"tv/95480"`. Es el final de la URL de su ficha en themoviedb.org, sin el nombre. Se encuentra buscando en la web el título junto a «themoviedb.org» (las fichas no se pueden abrir con WebFetch, pero la URL del resultado basta). Comprobar que el año y el director coinciden antes de usarla.
-2. **Tráiler oficial del estudio en YouTube.** En la sección `trailers`, el campo `video` lleva el identificador del vídeo (lo que va tras `v=` en la URL), siempre del canal oficial del estudio o la plataforma. La página de la noticia incrusta el vídeo.
+2. **Vídeo oficial en YouTube.** En los tráilers, y en cualquier noticia que tenga un vídeo oficial (un anuncio del estudio, por ejemplo), el campo `video` lleva el identificador del vídeo (lo que va tras `v=` en la URL), siempre del canal oficial del estudio o la plataforma. La página de la noticia incrusta el vídeo, y si la noticia es la apertura, también la portada en lugar de la foto. Nunca vídeos de cuentas que solo republican (DiscussingFilm, Culture Crave...).
 
 `build.py` pide a TMDB la imagen de fondo de cada referencia y, si no hay, usa la miniatura del tráiler o el póster. Solo puede hacerlo donde existe la variable `TMDB_API_KEY`, que está guardada como secreto del repositorio: las imágenes aparecen cuando la web se genera en GitHub (workflow `.github/workflows/publicar.yml`), no al ejecutar `build.py` en local. Es normal que en local salga sin fotos.
 

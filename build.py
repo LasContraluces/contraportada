@@ -16,6 +16,8 @@ from pathlib import Path
 
 RAIZ = Path(__file__).parent
 URL = "https://contraportada.lascontraluces.com"
+EN_PORTADA = 12      # tarjetas de «Lo último» en la portada
+POR_PAGINA = 21      # noticias por página en el archivo y en las secciones
 
 SECCIONES = {  # clave: (nombre en la barra, etiqueta en las piezas)
     "cine": ("Cine", "Cine"),
@@ -222,7 +224,74 @@ def cajas_laterales():
     return "\n".join(partes)
 
 
-def portada(noticias, hoy):
+def ruta_pagina(base, num):
+    """base "" para el archivo general (/pagina/N.html), o la clave de una sección (/cine/N.html)."""
+    if num == 1:
+        return f"/{base}.html" if base else "/"
+    return f"/{base}/{num}.html" if base else f"/pagina/{num}.html"
+
+
+def paginacion(base, actual, total):
+    if total <= 1:
+        return ""
+    partes = []
+    if actual > 1:
+        partes.append(f'<a class="anterior" href="{ruta_pagina(base, actual - 1)}">← Más recientes</a>')
+    numeros = []
+    for i in range(1, total + 1):
+        if i in (1, total) or abs(i - actual) <= 2:
+            numeros.append(f'<span class="actual" aria-current="page">{i}</span>' if i == actual
+                           else f'<a href="{ruta_pagina(base, i)}">{i}</a>')
+        elif numeros[-1] != "…":
+            numeros.append("…")
+    partes.append(f'<span class="numeros">{" ".join(numeros)}</span>')
+    if actual < total:
+        partes.append(f'<a class="siguiente" href="{ruta_pagina(base, actual + 1)}">Anteriores →</a>')
+    return f'<nav class="paginacion" aria-label="Páginas">{"".join(partes)}</nav>'
+
+
+def trozos(lista, tam):
+    return [lista[i:i + tam] for i in range(0, len(lista), tam)] or [[]]
+
+
+def en_portada(noticias):
+    """Las noticias que salen en la portada (apertura, secundarias y «Lo último»)."""
+    sin_trailers = [n for n in noticias if n["seccion"] != "trailers"]
+    principal = next((n for n in sin_trailers if n.get("portada") == 1), None) or (sin_trailers[0] if sin_trailers else None)
+    if not principal:
+        return []
+    resto = [n for n in sin_trailers if n is not principal]
+    secundarias = [n for n in resto if n.get("portada") == 2][:3]
+    for n in resto:
+        if len(secundarias) >= 3:
+            break
+        if n not in secundarias:
+            secundarias.append(n)
+    ultimas = [n for n in resto if n not in secundarias][:EN_PORTADA]
+    return [principal] + secundarias + ultimas
+
+
+def paginas_archivo(noticias, hoy):
+    """Páginas 2, 3... con todo lo que ya no cabe en la portada, de más reciente a más antiguo."""
+    vistas = {id(n) for n in en_portada(noticias)}
+    resto = [n for n in noticias if id(n) not in vistas]
+    if not resto:
+        return {}
+    grupos = trozos(resto, POR_PAGINA)
+    total = len(grupos) + 1
+    salida = {}
+    for i, grupo in enumerate(grupos, 2):
+        cuerpo = f"""<section class="bloque">
+<div class="cabecera-seccion"><h1>Todas las noticias</h1><p class="vacio">Página {i} de {total}</p></div>
+<div class="rejilla">{"".join(tarjeta(n) for n in grupo)}</div>
+{paginacion("", i, total)}
+</section>"""
+        salida[i] = pagina(f"Noticias, página {i} — La Contraportada", "Noticias anteriores de La Contraportada.",
+                           cuerpo, "", ruta_pagina("", i), hoy)
+    return salida
+
+
+def portada(noticias, hoy, paginas_archivo_cache=()):
     sin_trailers = [n for n in noticias if n["seccion"] != "trailers"]
     principal = next((n for n in sin_trailers if n.get("portada") == 1), None) or (sin_trailers[0] if sin_trailers else None)
     if not principal:
@@ -234,8 +303,9 @@ def portada(noticias, hoy):
             break
         if n not in secundarias:
             secundarias.append(n)
-    ultimas = [n for n in resto if n not in secundarias][:6]
+    ultimas = [n for n in resto if n not in secundarias][:EN_PORTADA]
     trailers = [n for n in noticias if n["seccion"] == "trailers"][:4]
+    total_paginas = 1 + len(paginas_archivo_cache)
 
     sec = "".join(f"""<article>
 <div class="meta">{etiqueta(n)}<span>{fecha_corta(n["dt"])}</span></div>
@@ -259,6 +329,7 @@ def portada(noticias, hoy):
 <section class="bloque">
 <div class="titulo-seccion"><h2>Lo último</h2></div>
 <div class="rejilla">{"".join(tarjeta(n) for n in ultimas)}</div>
+{paginacion("", 1, total_paginas)}
 </section>"""
     lateral = cajas_laterales()
     if trailers or lateral:
@@ -271,12 +342,23 @@ def portada(noticias, hoy):
                   cuerpo, "portada", "/", hoy)
 
 
-def pagina_seccion(clave, noticias, hoy):
+def paginas_seccion(clave, noticias, hoy):
+    """Devuelve {número de página: html}. La 1 es /clave.html; las demás, /clave/N.html."""
     nombre = SECCIONES[clave][0]
     propias = [n for n in noticias if n["seccion"] == clave]
-    lista = f'<div class="rejilla">{"".join(tarjeta(n) for n in propias)}</div>' if propias else '<p class="vacio">Todavía no hay noticias en esta sección.</p>'
-    cuerpo = f'<section class="bloque"><div class="cabecera-seccion"><h1>{e(nombre)}</h1></div>{lista}</section>'
-    return pagina(f"{nombre} — La Contraportada", f"Noticias de {nombre.lower()} en La Contraportada.", cuerpo, clave, f"/{clave}.html", hoy)
+    grupos = trozos(propias, POR_PAGINA)
+    total = len(grupos)
+    salida = {}
+    for i, grupo in enumerate(grupos, 1):
+        if grupo:
+            lista = f'<div class="rejilla">{"".join(tarjeta(n) for n in grupo)}</div>'
+        else:
+            lista = '<p class="vacio">Todavía no hay noticias en esta sección.</p>'
+        num = f'<p class="vacio">Página {i} de {total}</p>' if i > 1 else ""
+        cuerpo = f'<section class="bloque"><div class="cabecera-seccion"><h1>{e(nombre)}</h1>{num}</div>{lista}{paginacion(clave, i, total)}</section>'
+        titulo = f"{nombre} — La Contraportada" if i == 1 else f"{nombre}, página {i} — La Contraportada"
+        salida[i] = pagina(titulo, f"Noticias de {nombre.lower()} en La Contraportada.", cuerpo, clave, ruta_pagina(clave, i), hoy)
+    return salida
 
 
 def pagina_noticia(n, noticias, hoy):
@@ -339,9 +421,21 @@ def feed(noticias):
 def main():
     noticias = cargar_noticias()
     hoy = noticias[0]["dt"] if noticias else datetime.now()
-    (RAIZ / "index.html").write_text(portada(noticias, hoy), encoding="utf-8")
+    archivo = paginas_archivo(noticias, hoy)
+    (RAIZ / "index.html").write_text(portada(noticias, hoy, archivo), encoding="utf-8")
+    for carpeta in ["pagina", *SECCIONES]:
+        if (RAIZ / carpeta).is_dir():
+            shutil.rmtree(RAIZ / carpeta)
+    for num, html in archivo.items():
+        (RAIZ / "pagina").mkdir(exist_ok=True)
+        (RAIZ / "pagina" / f"{num}.html").write_text(html, encoding="utf-8")
     for clave in SECCIONES:
-        (RAIZ / f"{clave}.html").write_text(pagina_seccion(clave, noticias, hoy), encoding="utf-8")
+        for num, html in paginas_seccion(clave, noticias, hoy).items():
+            if num == 1:
+                (RAIZ / f"{clave}.html").write_text(html, encoding="utf-8")
+            else:
+                (RAIZ / clave).mkdir(exist_ok=True)
+                (RAIZ / clave / f"{num}.html").write_text(html, encoding="utf-8")
     salida = RAIZ / "noticia"
     if salida.exists():
         shutil.rmtree(salida)

@@ -138,3 +138,12 @@ main.ancho { padding-top: 32px; display: flex; flex-direction: column; gap: 56px
 .pie .lema { font-family: var(--serif); font-style: italic; font-size: 16px; }
 .pie .aviso { flex-basis: 100%; font-size: 12px; }
 .pie a { text-decoration: underline; text-underline-offset: 2px; }
+
+/* Paginación */
+.paginacion { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 20px; margin-top: 32px; padding-top: 16px; border-top: 1px solid var(--linea); font-size: 15px; }
+.paginacion a { color: var(--naranja-texto); }
+.paginacion a:hover { color: var(--naranja-hover); }
+.paginacion .anterior, .paginacion .siguiente { font-weight: 600; }
+.paginacion .siguiente { margin-left: auto; }
+.paginacion .numeros { display: flex; gap: 10px; color: var(--tenue); }
+.paginacion .actual { color: var(--tinta); font-weight: 600; }

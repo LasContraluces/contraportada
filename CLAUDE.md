@@ -67,7 +67,7 @@ Salen de estos sitios, y de ninguno más:
 `build.py` pide a TMDB la imagen de fondo de cada referencia y, si no hay, usa la miniatura del tráiler o el póster. Solo puede hacerlo donde existe la variable `TMDB_API_KEY`, que está guardada como secreto del repositorio: las imágenes aparecen cuando la web se genera en GitHub (workflow `.github/workflows/publicar.yml`), no al ejecutar `build.py` en local. Es normal que en local salga sin fotos.
 
 - `pie_imagen` es el texto alternativo de la foto: «Imagen de «Título»».
-- **No se publican noticias sin foto.** Si no hay ficha de TMDB con imágenes ni vídeo oficial (una negociación sindical, un fichaje para un proyecto sin ficha), se avisa a Jose en el borrador («sin foto: pásame una») y la noticia no se publica hasta que él la pase.
+- **No se publican noticias sin foto.** Si no hay ficha de TMDB con imágenes ni vídeo oficial (una negociación sindical, un fichaje para un proyecto sin ficha), se avisa a Jose en el borrador («SIN FOTO: pásame una») y la noticia no se publica hasta que él la pase. Nunca se descarta una noticia por no tener foto: se propone igual y se le pide la foto.
 - Nunca fotos de los medios (Deadline, Variety...) ni de agencias.
 - Fotos de personas (actores, directores...): se pueden poner cuando Jose las pasa. Van con `imagen` y `credito_imagen`, con el crédito que él indique.
 - `imagen` y `credito_imagen` permiten poner a mano una foto concreta; solo si Jose la pasa o lo pide.

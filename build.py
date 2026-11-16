@@ -147,7 +147,7 @@ def pagina(titulo, descripcion, cuerpo, activa="", ruta="/", hoy=None):
 <body>
 <div class="franja"><div class="ancho">
 <span>{e(fecha_larga(hoy))}</span>
-<nav aria-label="Otras webs"><a href="https://lascontraluces.com/">Archivo de reseñas</a><a href="https://lascontraluces.com/podcasts.html">Podcasts</a><a href="https://linktr.ee/lacontraludica">La Contralúdica ↗</a></nav>
+<nav aria-label="Otras webs"><a href="https://lascontraluces.com/">Las Contraluces</a><a href="https://lascontraluces.com/podcasts.html">Podcasts</a><a href="https://linktr.ee/lacontraludica">La Contralúdica ↗</a></nav>
 </div></div>
 <header class="cabecera"><div class="ancho">
 <div class="marca-grupo">

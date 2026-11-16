@@ -45,7 +45,15 @@ Se publica con GitHub Pages en https://contraportada.lascontraluces.com (rama `m
 
 ## Fuentes
 
-Las noticias salen de medios primarios: The Hollywood Reporter, Variety, Deadline, IndieWire, Collider, Entertainment Weekly y Screen Daily. DiscussingFilm, Culture Crave y Film Updates sirven para detectar noticias, pero se enlaza al medio que la dio primero. No se resumen webs españolas (Espinof, SensaCine, Fotogramas...).
+Se buscan noticias en todos estos medios y cualquiera de ellos puede ir como fuente:
+
+- Trades: The Hollywood Reporter, Variety, Deadline, IndieWire, Collider, Entertainment Weekly, Screen Daily, TheWrap.
+- Otros medios de cine y series: Gold Derby, TV Guide, TVLine, One Mann's Movies, Is My Show Cancelled, Empire, Total Film, /Film, Vulture.
+- Agregadores de redes: DiscussingFilm, Culture Crave, Film Updates.
+- Datos de taquilla: Box Office Mojo, The Numbers.
+- Comunicados oficiales de estudios y plataformas.
+
+Si un medio recoge una noticia que dio otro («vía», «según informa»), se enlaza también al que la dio primero cuando se encuentre. Las imágenes nunca se cogen de estos medios. No se resumen webs españolas (Espinof, SensaCine, Fotogramas...).
 
 Temas: estrenos de cine, series y plataformas. Cada noticia lleva enlace a la fuente original.
 

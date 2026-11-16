@@ -6,8 +6,10 @@ Salida: index.html, una página por sección, noticia/<slug>.html, feed.xml y el
 No necesita nada más que Python 3.
 """
 import json
+import os
 import re
 import shutil
+import urllib.request
 from datetime import datetime
 from html import escape as e
 from pathlib import Path
@@ -68,10 +70,49 @@ def nombres_fuentes(n):
     return ", ".join(f["nombre"] for f in n.get("fuentes", []))
 
 
-def foto(n):
+TMDB_KEY = os.environ.get("TMDB_API_KEY", "").strip()
+_tmdb = {}
+
+
+def tmdb(ref):
+    """Devuelve (fondo, poster) de TMDB para una referencia tipo movie/123 o tv/456."""
+    if ref in _tmdb:
+        return _tmdb[ref]
+    resultado = (None, None)
+    if TMDB_KEY and re.fullmatch(r"(movie|tv)/\d+", ref or ""):
+        try:
+            url = f"https://api.themoviedb.org/3/{ref}?api_key={TMDB_KEY}&language=es-ES"
+            with urllib.request.urlopen(url, timeout=15) as r:
+                d = json.load(r)
+            resultado = (d.get("backdrop_path"), d.get("poster_path"))
+        except Exception as error:  # una imagen que falla no debe tumbar la publicación
+            print(f"TMDB {ref}: {error}")
+    _tmdb[ref] = resultado
+    return resultado
+
+
+def imagen_de(n):
+    """Elige la imagen de una noticia: la indicada a mano, la de TMDB o la miniatura del tráiler."""
     if n.get("imagen"):
-        return f'<div class="foto con-imagen"><img src="{e(n["imagen"])}" alt="{e(n.get("pie_imagen", ""))}" loading="lazy"></div>'
-    return f'<div class="foto">{e(n.get("pie_imagen", ""))}</div>'
+        return n["imagen"], n.get("credito_imagen", "")
+    fondo, poster = tmdb(n.get("tmdb"))
+    if fondo:
+        return f"https://image.tmdb.org/t/p/w1280{fondo}", "TMDB"
+    if n.get("video"):
+        return f"https://i.ytimg.com/vi/{n['video']}/hqdefault.jpg", "YouTube"
+    if poster:
+        return f"https://image.tmdb.org/t/p/w780{poster}", "TMDB"
+    return None, ""
+
+
+def foto(n, enlazar=True):
+    url, _ = imagen_de(n)
+    if not url:
+        return ""
+    img = f'<img src="{e(url)}" alt="{e(n.get("pie_imagen", ""))}" loading="lazy">'
+    if enlazar:
+        return f'<a class="foto" href="{enlace(n)}" tabindex="-1" aria-hidden="true">{img}</a>'
+    return f'<div class="foto">{img}</div>'
 
 
 def pagina(titulo, descripcion, cuerpo, activa="", ruta="/", hoy=None):
@@ -121,6 +162,7 @@ def pagina(titulo, descripcion, cuerpo, activa="", ruta="/", hoy=None):
 <footer class="pie"><div class="ancho">
 <span class="lema">Cine, series, libros y juegos, mirados a contraluz.</span>
 <span>Cada noticia enlaza a su fuente original. <a href="/feed.xml">RSS</a></span>
+<span class="aviso">Imágenes de películas y series: <a href="https://www.themoviedb.org/">TMDB</a>. Este sitio usa la API de TMDB, pero no está avalado ni certificado por TMDB.</span>
 </div></footer>
 </body>
 </html>
@@ -231,11 +273,18 @@ def pagina_noticia(n, noticias, hoy):
     parrafos = "".join(f"<p>{e(p)}</p>" for p in n.get("cuerpo", []))
     fuentes = ", ".join(f'<a href="{e(f["url"])}" rel="noopener">{e(f["nombre"])}</a>' for f in n.get("fuentes", []))
     otras = [o for o in noticias if o is not n][:3]
+    if n.get("video"):
+        medio = f'<div class="video"><iframe src="https://www.youtube-nocookie.com/embed/{e(n["video"])}" title="Tráiler de {e(n["titulo"])}" loading="lazy" allow="encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe></div>'
+    else:
+        _, credito = imagen_de(n)
+        medio = foto(n, enlazar=False)
+        if medio and credito:
+            medio += f'<p class="credito">Imagen: {e(credito)}</p>'
     cuerpo = f"""<article class="noticia">
 <div class="meta">{etiqueta(n)}<span>{e(fecha_larga(n["dt"]))}</span></div>
 <h1>{e(n["titulo"])}</h1>
 <p class="entradilla">{e(n["entradilla"])}</p>
-{foto(n)}
+{medio}
 <div class="cuerpo">{parrafos}</div>
 <p class="fuentes">Fuente original: {fuentes}</p>
 </article>

@@ -10,7 +10,7 @@ Se publica con GitHub Pages en https://contraportada.lascontraluces.com (rama `m
 - `build.py`: genera `index.html`, las páginas de sección, `noticia/<slug>.html` y `feed.xml`. Solo necesita Python 3.
 - `buscar.js`: el buscador. Filtra en el navegador el índice `buscar.json`, que genera `build.py` junto con `buscar.html`.
 - `estilos.css`: todo el diseño. Fondo beige, naranja vivo en cabecera y titulares de apertura. No cambiar colores ni tipografías sin que Jose lo pida.
-- Los `.html`, `feed.xml` y `buscar.json` son salida generada y van al repositorio (Pages no ejecuta nada). Nunca editarlos a mano.
+- Los `.html`, `feed.xml` y `buscar.json` son salida generada. Nunca editarlos a mano. Se suben también al repositorio como respaldo, aunque la versión que se publica la genera GitHub en cada push (con las imágenes).
 
 ## Publicar
 
@@ -31,7 +31,9 @@ Se publica con GitHub Pages en https://contraportada.lascontraluces.com (rama `m
   "entradilla": "Una o dos frases que resumen la noticia.",
   "resumen": "Opcional. Versión más corta para las tarjetas.",
   "cuerpo": ["Párrafo 1.", "Párrafo 2."],
-  "pie_imagen": "Imagen: descripción de la foto que iría aquí",
+  "tmdb": "movie/1567605",
+  "video": "Solo en tráilers: identificador del vídeo de YouTube",
+  "pie_imagen": "Imagen de «Título»",
   "fuentes": [{"nombre": "Deadline", "url": "https://..."}]
 }
 ```
@@ -56,4 +58,14 @@ Temas: estrenos de cine, series y plataformas. Cada noticia lleva enlace a la fu
 
 ## Imágenes
 
-Todavía no hay. Cada pieza lleva un hueco gris con `pie_imagen`. No añadir fotos de medios ni de agencias, ni fotos de personas, hasta que Jose decida de dónde salen. Si una noticia trae el campo `imagen`, se usa.
+Salen de dos sitios, y de ninguno más:
+
+1. **TMDB.** Cada noticia sobre una película o serie lleva el campo `tmdb` con su referencia: `"movie/1567605"` o `"tv/95480"`. Es el final de la URL de su ficha en themoviedb.org, sin el nombre. Se encuentra buscando en la web el título junto a «themoviedb.org» (las fichas no se pueden abrir con WebFetch, pero la URL del resultado basta). Comprobar que el año y el director coinciden antes de usarla.
+2. **Tráiler oficial del estudio en YouTube.** En la sección `trailers`, el campo `video` lleva el identificador del vídeo (lo que va tras `v=` en la URL), siempre del canal oficial del estudio o la plataforma. La página de la noticia incrusta el vídeo.
+
+`build.py` pide a TMDB la imagen de fondo de cada referencia y, si no hay, usa la miniatura del tráiler o el póster. Solo puede hacerlo donde existe la variable `TMDB_API_KEY`, que está guardada como secreto del repositorio: las imágenes aparecen cuando la web se genera en GitHub (workflow `.github/workflows/publicar.yml`), no al ejecutar `build.py` en local. Es normal que en local salga sin fotos.
+
+- `pie_imagen` es el texto alternativo de la foto: «Imagen de «Título»».
+- Si la noticia no va de una película o serie concreta (una negociación sindical, un fichaje para un proyecto sin ficha), se deja sin `tmdb` y sale sin foto. No pasa nada.
+- Nunca fotos de los medios (Deadline, Variety...), de agencias ni retratos de personas. Tampoco las fotos de perfil de actores de TMDB.
+- `imagen` y `credito_imagen` permiten poner a mano una URL concreta; solo si Jose lo pide.

@@ -6,11 +6,12 @@
   "cuerpo": [
     "Amazon MGM ha publicado un nuevo tráiler completo de su remake de «The Thomas Crown Affair», protagonizado por Michael B. Jordan."
   ],
-  "pie_imagen": "Vídeo de YouTube",
+  "pie_imagen": "Imagen de «The Thomas Crown Affair»",
   "fuentes": [
     {
       "nombre": "One Mann's Movies",
       "url": "https://onemannsmovies.com/movie-news/movie-news-13th-november-2026/"
     }
-  ]
+  ],
+  "tmdb": "movie/615121"
 }

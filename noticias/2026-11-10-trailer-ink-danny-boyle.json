@@ -6,11 +6,12 @@
   "cuerpo": [
     "Ya hay tráiler de «Ink», la película en la que Danny Boyle cuenta cómo Rupert Murdoch construyó su imperio de prensa sensacionalista en Fleet Street. Guy Pearce interpreta a Murdoch."
   ],
-  "pie_imagen": "Vídeo de YouTube",
+  "pie_imagen": "Imagen de «Ink»",
   "fuentes": [
     {
       "nombre": "IndieWire",
       "url": "https://www.indiewire.com/c/news/trailers/"
     }
-  ]
+  ],
+  "tmdb": "movie/1532610"
 }

@@ -6,11 +6,12 @@
   "cuerpo": [
     "Paramount ha lanzado un nuevo tráiler de «Children of Blood and Bone», de Gina Prince-Bythewood. El avance muestra el enfrentamiento entre Zélie, el personaje de Thuso Mbedu, y el rey Saran, al que interpreta Chiwetel Ejiofor."
   ],
-  "pie_imagen": "Vídeo de YouTube",
+  "pie_imagen": "Imagen de «Children of Blood and Bone»",
   "fuentes": [
     {
       "nombre": "One Mann's Movies",
       "url": "https://onemannsmovies.com/movie-news/movie-news-13th-november-2026/"
     }
-  ]
+  ],
+  "tmdb": "movie/621304"
 }

@@ -6,11 +6,12 @@
   "cuerpo": [
     "Se ha publicado el tráiler de «The Debut», una comedia ambientada en el mundo del teatro musical que dirige Jesse Eisenberg y protagoniza Julianne Moore."
   ],
-  "pie_imagen": "Vídeo de YouTube",
+  "pie_imagen": "Imagen de «The Debut»",
   "fuentes": [
     {
       "nombre": "IndieWire",
       "url": "https://www.indiewire.com/c/news/trailers/"
     }
-  ]
+  ],
+  "tmdb": "movie/1391239"
 }

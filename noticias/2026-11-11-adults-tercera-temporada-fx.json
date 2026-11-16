@@ -6,7 +6,7 @@
   "cuerpo": [
     "FX ha renovado la comedia «Adults» por una tercera temporada, que tendrá 16 episodios."
   ],
-  "pie_imagen": "Imagen: «Adults» (FX)",
+  "pie_imagen": "Imagen de «Adults»",
   "fuentes": [
     {
       "nombre": "Deadline",
@@ -16,5 +16,6 @@
       "nombre": "Is My Show Cancelled",
       "url": "https://www.ismyshowcancelled.com/home/"
     }
-  ]
+  ],
+  "tmdb": "tv/260458"
 }

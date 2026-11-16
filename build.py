@@ -139,6 +139,9 @@ def pagina(titulo, descripcion, cuerpo, activa="", ruta="/", hoy=None):
 <meta property="og:title" content="{e(titulo)}">
 <meta property="og:description" content="{e(descripcion)}">
 <link rel="canonical" href="{URL}{ruta}">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="alternate" type="application/rss+xml" title="La Contraportada" href="{URL}/feed.xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">

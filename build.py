@@ -2,7 +2,7 @@
 """Genera La Contraportada a partir de noticias/*.json y datos/*.json.
 
 Uso: python3 build.py
-Salida: index.html, una página por sección, noticia/<slug>.html y feed.xml.
+Salida: index.html, una página por sección, noticia/<slug>.html, feed.xml y el buscador (buscar.html, buscar.json).
 No necesita nada más que Python 3.
 """
 import json
@@ -103,8 +103,14 @@ def pagina(titulo, descripcion, cuerpo, activa="", ruta="/", hoy=None):
 <nav aria-label="Otras webs"><a href="https://lascontraluces.com/">Archivo de reseñas</a><a href="https://lascontraluces.com/podcasts.html">Podcasts</a><a href="https://linktr.ee/lacontraludica">La Contralúdica ↗</a></nav>
 </div></div>
 <header class="cabecera"><div class="ancho">
+<div class="marca-grupo">
 <a class="marca" href="/">La Contraportada</a>
 <span class="submarca">las noticias de <a href="https://lascontraluces.com/">Las Contraluces</a></span>
+</div>
+<form class="buscador" action="/buscar.html" method="get" role="search">
+<label for="buscar">Buscar noticias</label>
+<div class="buscador-fila"><input id="buscar" name="q" type="search" placeholder="Título, actor, plataforma" autocomplete="off"><button type="submit">Buscar</button></div>
+</form>
 </div></header>
 <nav class="secciones" aria-label="Secciones"><div class="ancho">
 {chr(10).join(barra)}
@@ -240,6 +246,25 @@ def pagina_noticia(n, noticias, hoy):
     return pagina(f"{n['titulo']} — La Contraportada", n["entradilla"], cuerpo, n["seccion"], enlace(n), hoy)
 
 
+def pagina_buscar(hoy):
+    cuerpo = """<section class="bloque">
+<div class="cabecera-seccion"><h1>Buscar</h1></div>
+<p id="estado" class="vacio" aria-live="polite">Escribe arriba lo que buscas: un título, un actor, una plataforma.</p>
+<div id="resultados" class="rejilla"></div>
+</section>
+<script src="/buscar.js"></script>"""
+    return pagina("Buscar — La Contraportada", "Busca entre las noticias de La Contraportada.", cuerpo, "", "/buscar.html", hoy)
+
+
+def indice(noticias):
+    return json.dumps([{
+        "t": n["titulo"], "e": n.get("resumen") or n["entradilla"],
+        "x": " ".join([n["entradilla"]] + n.get("cuerpo", [])),
+        "s": n["seccion"], "n": SECCIONES[n["seccion"]][1], "f": fecha_corta(n["dt"]),
+        "u": enlace(n), "o": nombres_fuentes(n),
+    } for n in noticias], ensure_ascii=False)
+
+
 def feed(noticias):
     items = "".join(f"""<item><title>{e(n["titulo"])}</title><link>{URL}{enlace(n)}</link><guid>{URL}{enlace(n)}</guid>
 <pubDate>{n["dt"].strftime("%a, %d %b %Y %H:%M:%S +0100")}</pubDate><description>{e(n["entradilla"])}</description></item>
@@ -265,6 +290,8 @@ def main():
     for n in noticias:
         (salida / f"{n['slug']}.html").write_text(pagina_noticia(n, noticias, hoy), encoding="utf-8")
     (RAIZ / "feed.xml").write_text(feed(noticias), encoding="utf-8")
+    (RAIZ / "buscar.html").write_text(pagina_buscar(hoy), encoding="utf-8")
+    (RAIZ / "buscar.json").write_text(indice(noticias), encoding="utf-8")
     print(f"{len(noticias)} noticias, {len(SECCIONES)} secciones")
 
 

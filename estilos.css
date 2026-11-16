@@ -32,7 +32,15 @@ img { max-width: 100%; display: block; }
 /* Cabecera */
 .cabecera { position: relative; overflow: hidden; }
 .cabecera::before { content: ""; position: absolute; top: -170px; left: 24px; width: 560px; height: 360px; background: radial-gradient(ellipse at center, rgba(226,110,30,0.22) 0%, rgba(226,110,30,0.09) 34%, rgba(226,110,30,0) 68%); pointer-events: none; }
-.cabecera .ancho { position: relative; padding-top: 30px; padding-bottom: 22px; display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 16px; }
+.cabecera .ancho { position: relative; padding-top: 30px; padding-bottom: 22px; display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 18px 32px; }
+.marca-grupo { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 16px; }
+.buscador { display: flex; flex-direction: column; gap: 6px; }
+.buscador label { font-size: 12px; color: var(--tenue); }
+.buscador-fila { display: flex; gap: 8px; }
+.buscador input { width: 240px; max-width: 100%; min-width: 0; height: 44px; background: var(--panel); border: 1px solid var(--linea); border-radius: 4px; color: var(--tinta); font-family: inherit; font-size: 15px; padding: 0 14px; }
+.buscador button { height: 44px; padding: 0 16px; background: var(--naranja-texto); color: #fff; border: 0; border-radius: 4px; font-family: inherit; font-size: 15px; font-weight: 500; cursor: pointer; }
+.buscador button:hover { background: var(--naranja-hover); }
+.buscador button:focus-visible { outline: 2px solid var(--tinta); outline-offset: 3px; }
 .marca { font-family: var(--serif); font-weight: 600; font-size: 46px; line-height: 1; letter-spacing: -0.01em; color: var(--naranja); }
 .marca:hover { color: var(--naranja); }
 .submarca { font-family: var(--serif); font-style: italic; font-weight: 500; font-size: 18px; color: var(--tenue); }

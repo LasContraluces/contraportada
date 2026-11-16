@@ -8,8 +8,9 @@ Se publica con GitHub Pages en https://contraportada.lascontraluces.com (rama `m
 - `noticias/AAAA-MM-DD-slug.json`: una noticia por archivo. Es lo único que se escribe a mano.
 - `datos/taquilla.json`, `datos/estrenos.json`, `datos/criticas.json`: las cajas de la columna lateral de la portada.
 - `build.py`: genera `index.html`, las páginas de sección, `noticia/<slug>.html` y `feed.xml`. Solo necesita Python 3.
+- `buscar.js`: el buscador. Filtra en el navegador el índice `buscar.json`, que genera `build.py` junto con `buscar.html`.
 - `estilos.css`: todo el diseño. Fondo beige, naranja vivo en cabecera y titulares de apertura. No cambiar colores ni tipografías sin que Jose lo pida.
-- Los `.html` y `feed.xml` son salida generada y van al repositorio (Pages no ejecuta nada). Nunca editarlos a mano.
+- Los `.html`, `feed.xml` y `buscar.json` son salida generada y van al repositorio (Pages no ejecuta nada). Nunca editarlos a mano.
 
 ## Publicar
 

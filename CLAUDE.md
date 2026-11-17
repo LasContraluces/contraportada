@@ -21,6 +21,10 @@ Se publica con GitHub Pages en https://contraportada.lascontraluces.com (rama `m
 
 **No se publica nada sin el visto bueno de Jose.** Él revisa cada noticia antes de que salga.
 
+## Bluesky
+
+`bluesky.py` publica las noticias nuevas en la cuenta de Bluesky de Jose, una cada media hora como mucho (workflow `.github/workflows/bluesky.yml`, en los minutos 7 y 37 de cada hora). Publica primero la más antigua que falte. Para saber cuáles ya están, mira los enlaces de los últimos posts de la cuenta, así que no hay que tocar nada al publicar una noticia. Solo publica noticias con fecha desde `INICIO` y de los dos últimos días. Usa los secretos `BLUESKY_HANDLE` y `BLUESKY_APP_PASSWORD`; sin ellos no hace nada.
+
 ## Formato de una noticia
 
 ```json

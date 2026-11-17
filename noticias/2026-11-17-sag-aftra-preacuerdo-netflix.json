@@ -1,0 +1,22 @@
+{
+  "titulo": "El sindicato de actores SAG-AFTRA cierra un preacuerdo con Netflix para su convenio propio",
+  "seccion": "industria",
+  "fecha": "2026-11-17T18:56",
+  "entradilla": "Los detalles se conocerán cuando lo vote la junta nacional del sindicato.",
+  "cuerpo": [
+    "SAG-AFTRA ha alcanzado un acuerdo provisional con Netflix para renovar el convenio que firman por separado desde 2019. El sindicato lo justificó entonces porque el modelo de negocio de la plataforma es distinto. Netflix también firma el convenio general de cine y televisión.",
+    "El convenio anterior, de 2022, permitió a los fijos de una serie protagonizar una miniserie el mismo año, garantizó residuales a los especialistas y amplió la cobertura a los actores de doblaje."
+  ],
+  "imagen": "/imagenes/sag-aftra-netflix.jpg",
+  "pie_imagen": "Logotipos de SAG-AFTRA y Netflix",
+  "fuentes": [
+    {
+      "nombre": "TheWrap",
+      "url": "https://www.thewrap.com/industry-news/labor-unions/sag-aftra-netflix-tentative-deal-2026/"
+    },
+    {
+      "nombre": "Deadline",
+      "url": "https://deadline.com/2026/11/sag-aftra-new-tentative-contract-netflix-1237226841/"
+    }
+  ]
+}

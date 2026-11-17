@@ -123,7 +123,9 @@ def foto(n, enlazar=True):
     return f'<div class="foto">{img}</div>'
 
 
-def pagina(titulo, descripcion, cuerpo, activa="", ruta="/", hoy=None):
+def pagina(titulo, descripcion, cuerpo, activa="", ruta="/", hoy=None, imagen=None):
+    """imagen: la foto que sale al compartir el enlace en redes. Sin ella, la tarjeta genérica."""
+    imagen = imagen or f"{URL}/compartir.jpg"
     barra = [f'<a href="/" class="{"activa" if activa == "portada" else ""}">Portada</a>']
     for clave in ["cine", "series", "plataformas", "trailers", "taquilla", "fichajes"]:
         clases = " ".join(c for c in [clave if clave in ("cine", "series") else "", "activa" if activa == clave else ""] if c)
@@ -140,6 +142,13 @@ def pagina(titulo, descripcion, cuerpo, activa="", ruta="/", hoy=None):
 <meta property="og:site_name" content="La Contraportada">
 <meta property="og:title" content="{e(titulo)}">
 <meta property="og:description" content="{e(descripcion)}">
+<meta property="og:url" content="{URL}{ruta}">
+<meta property="og:image" content="{e(imagen)}">
+<meta property="og:locale" content="es_ES">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{e(titulo)}">
+<meta name="twitter:description" content="{e(descripcion)}">
+<meta name="twitter:image" content="{e(imagen)}">
 <link rel="canonical" href="{URL}{ruta}">
 <link rel="icon" href="/favicon.ico?v=2" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png?v=2">
@@ -392,7 +401,8 @@ def pagina_noticia(n, noticias, hoy):
 <div class="titulo-seccion"><h2>Más noticias</h2><a href="/">Volver a la portada</a></div>
 <div class="rejilla">{"".join(tarjeta(o) for o in otras)}</div>
 </section>"""
-    return pagina(f"{n['titulo']} — La Contraportada", n["entradilla"], cuerpo, n["seccion"], enlace(n), hoy)
+    return pagina(f"{n['titulo']} — La Contraportada", n["entradilla"], cuerpo, n["seccion"], enlace(n), hoy,
+                  imagen_de(n)[0])
 
 
 def pagina_buscar(hoy):

@@ -1,0 +1,29 @@
+{
+  "titulo": "Disney gana más con Disney+ y Hulu y gastará 26.000 millones en contenido el próximo año",
+  "seccion": "industria",
+  "fecha": "2026-11-17T14:20",
+  "portada": 2,
+  "entradilla": "La compañía ingresó 25.900 millones de dólares en su último trimestre fiscal, un 16 % más. Disney+ y Hulu se fusionan en una sola aplicación en diciembre.",
+  "resumen": "Disney+ y Hulu doblan su beneficio y Disney gastará 26.000 millones en contenido en 2027.",
+  "cuerpo": [
+    "Disney ha presentado este martes los resultados del cuarto trimestre de su año fiscal: 25.947 millones de dólares de ingresos, un 16 % más que hace un año, y un beneficio ajustado por acción de 1,77 dólares, frente a 1,11. Disney+ y Hulu dieron 824 millones de beneficio operativo, el doble que un año antes (402 millones). Los parques ganaron 2.250 millones.",
+    "Para el año fiscal 2027 prevé gastar unos 26.000 millones de dólares en contenido, un 9 % más. A partir de diciembre, Hulu quedará integrada del todo en la aplicación de Disney+, con televisión en directo incluida. Desde el próximo trimestre dejará de publicar por separado el beneficio de su negocio de streaming.",
+    "También sube el dividendo un 33 %, hasta 2 dólares por acción, y se ha marcado el objetivo de ahorrar unos 3.000 millones al año en gastos de aquí a 2029. Su director financiero, Hugh Johnston, ha dicho en CNBC que habrá más despidos."
+  ],
+  "imagen": "/imagenes/disney-tienda-times-square.jpg",
+  "pie_imagen": "Tienda de Disney en Times Square",
+  "fuentes": [
+    {
+      "nombre": "The Walt Disney Company",
+      "url": "https://www.sec.gov/Archives/edgar/data/1744489/000174448926000065/fy2026_q4xerxex991.htm"
+    },
+    {
+      "nombre": "Deadline",
+      "url": "https://deadline.com/2026/11/disney-q4-earnings-streaming-movie-studio-theme-parks-1237226397/"
+    },
+    {
+      "nombre": "TheWrap",
+      "url": "https://www.thewrap.com/industry-news/business/disney-earnings-q4-2026/"
+    }
+  ]
+}

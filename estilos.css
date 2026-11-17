@@ -72,16 +72,22 @@ main.ancho { padding-top: 32px; display: flex; flex-direction: column; gap: 56px
 .titulo-seccion a { font-size: 14px; color: var(--naranja-texto); }
 
 /* Apertura */
-.apertura { display: flex; flex-wrap: wrap; gap: 36px; }
-.columna-principal { flex: 999 1 560px; min-width: 0; display: flex; flex-direction: column; gap: 28px; }
+/* En móvil van en el orden del HTML: apertura, 2, 3 y 4. En escritorio, la 4 pasa bajo la apertura y la 2 y la 3 a la derecha. */
+.apertura { display: grid; grid-template-columns: minmax(0, 1fr); gap: 36px; }
+@media (min-width: 984px) {
+  .apertura { grid-template-columns: minmax(0, 1fr) 340px; grid-template-rows: auto 1fr; gap: 28px 36px; }
+  .apertura .principal { grid-column: 1; grid-row: 1; }
+  .apertura .derecha { grid-column: 2; grid-row: 1 / span 2; align-self: start; }
+  .apertura .bajo-principal { grid-column: 1; grid-row: 2; align-self: start; }
+}
 .principal { display: flex; flex-direction: column; gap: 16px; }
-.secundarias.bajo-principal { flex: none; border-top: 1px solid var(--linea); padding-top: 28px; }
+.secundarias.bajo-principal { border-top: 1px solid var(--linea); padding-top: 28px; }
 .secundarias.bajo-principal article { flex-direction: row; flex-wrap: wrap; gap: 20px; }
 .secundarias.bajo-principal .foto { flex: 1 1 260px; max-width: 340px; align-self: flex-start; }
 .secundarias.bajo-principal .texto { flex: 2 1 300px; min-width: 0; }
 .principal h1 { font-family: var(--serif); font-weight: 600; font-size: clamp(30px, 4.4vw, 44px); line-height: 1.1; letter-spacing: -0.01em; color: var(--naranja); text-wrap: balance; }
 .principal .entradilla { font-size: 18px; color: var(--tinta-2); max-width: 62ch; }
-.secundarias { flex: 1 1 340px; min-width: 0; display: flex; flex-direction: column; }
+.secundarias { min-width: 0; display: flex; flex-direction: column; }
 .secundarias article { display: flex; flex-direction: column; gap: 12px; padding: 22px 0; border-bottom: 1px solid var(--linea); }
 .secundarias .texto { display: flex; flex-direction: column; gap: 8px; }
 .secundarias article:first-child { padding-top: 0; }

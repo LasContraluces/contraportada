@@ -322,7 +322,6 @@ def portada(noticias, hoy, paginas_archivo_cache=()):
     sec = "".join(secundaria(n) for n in secundarias[:2])
 
     cuerpo = f"""<section class="apertura">
-<div class="columna-principal">
 <article class="principal">
 {video(principal) if principal.get("video") else foto(principal)}
 <div class="meta">{etiqueta(principal)}<span>{fecha_corta(principal["dt"])}</span></div>
@@ -330,9 +329,8 @@ def portada(noticias, hoy, paginas_archivo_cache=()):
 <p class="entradilla">{e(principal["entradilla"])}</p>
 <p class="fuente">Fuente: {e(nombres_fuentes(principal))}</p>
 </article>
+<div class="secundarias derecha">{sec}</div>
 {bajo}
-</div>
-<div class="secundarias">{sec}</div>
 </section>"""
     if ultimas:
         cuerpo += f"""

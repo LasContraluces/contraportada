@@ -77,7 +77,8 @@ main.ancho { padding-top: 32px; display: flex; flex-direction: column; gap: 56px
 .principal h1 { font-family: var(--serif); font-weight: 600; font-size: clamp(30px, 4.4vw, 44px); line-height: 1.1; letter-spacing: -0.01em; color: var(--naranja); text-wrap: balance; }
 .principal .entradilla { font-size: 18px; color: var(--tinta-2); max-width: 62ch; }
 .secundarias { flex: 1 1 340px; min-width: 0; display: flex; flex-direction: column; }
-.secundarias article { display: flex; flex-direction: column; gap: 8px; padding: 22px 0; border-bottom: 1px solid var(--linea); }
+.secundarias article { display: flex; flex-direction: column; gap: 12px; padding: 22px 0; border-bottom: 1px solid var(--linea); }
+.secundarias .texto { display: flex; flex-direction: column; gap: 8px; }
 .secundarias article:first-child { padding-top: 0; }
 .secundarias article:last-child { border-bottom: 0; padding-bottom: 0; }
 .secundarias h2 { font-family: var(--serif); font-weight: 500; font-size: 24px; line-height: 1.2; color: var(--naranja); text-wrap: balance; }

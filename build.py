@@ -308,10 +308,13 @@ def portada(noticias, hoy, paginas_archivo_cache=()):
     total_paginas = 1 + len(paginas_archivo_cache)
 
     sec = "".join(f"""<article>
+{foto(n)}
+<div class="texto">
 <div class="meta">{etiqueta(n)}<span>{fecha_corta(n["dt"])}</span></div>
 <h2><a href="{enlace(n)}">{e(n["titulo"])}</a></h2>
 <p>{e(n.get("resumen") or n["entradilla"])}</p>
 <p class="fuente">Fuente: {e(nombres_fuentes(n))}</p>
+</div>
 </article>""" for n in secundarias)
 
     cuerpo = f"""<section class="apertura">

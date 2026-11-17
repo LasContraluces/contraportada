@@ -318,8 +318,8 @@ def portada(noticias, hoy, paginas_archivo_cache=()):
 </div>
 </article>"""
 
-    bajo = f'<div class="secundarias bajo-principal">{secundaria(secundarias[0])}</div>' if secundarias else ""
-    sec = "".join(secundaria(n) for n in secundarias[1:])
+    bajo = f'<div class="secundarias bajo-principal">{secundaria(secundarias[2])}</div>' if len(secundarias) > 2 else ""
+    sec = "".join(secundaria(n) for n in secundarias[:2])
 
     cuerpo = f"""<section class="apertura">
 <div class="columna-principal">

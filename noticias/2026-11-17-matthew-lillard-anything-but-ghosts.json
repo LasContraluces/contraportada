@@ -9,11 +9,12 @@
     "Produce Blumhouse Atomic. El estreno en Estados Unidos está fijado para el 7 de mayo de 2027."
   ],
   "tmdb": "movie/1540936",
-  "pie_imagen": "Imagen de «Anything But Ghosts»",
+  "pie_imagen": "Matthew Lillard",
   "fuentes": [
     {
       "nombre": "Deadline",
       "url": "https://deadline.com/2026/11/curry-barker-anything-but-ghosts-casts-matthew-lillard-1237225315/"
     }
-  ]
+  ],
+  "imagen": "/imagenes/matthew-lillard.jpg"
 }

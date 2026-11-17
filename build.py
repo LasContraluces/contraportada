@@ -126,6 +126,8 @@ def foto(n, enlazar=True):
 def pagina(titulo, descripcion, cuerpo, activa="", ruta="/", hoy=None, imagen=None):
     """imagen: la foto que sale al compartir el enlace en redes. Sin ella, la tarjeta genérica."""
     imagen = imagen or f"{URL}/compartir.jpg"
+    if imagen.startswith("/"):  # las redes necesitan la URL completa
+        imagen = URL + imagen
     barra = [f'<a href="/" class="{"activa" if activa == "portada" else ""}">Portada</a>']
     for clave in ["cine", "series", "plataformas", "trailers", "taquilla", "fichajes"]:
         clases = " ".join(c for c in [clave if clave in ("cine", "series") else "", "activa" if activa == clave else ""] if c)

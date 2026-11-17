@@ -307,7 +307,8 @@ def portada(noticias, hoy, paginas_archivo_cache=()):
     trailers = [n for n in noticias if n["seccion"] == "trailers"][:4]
     total_paginas = 1 + len(paginas_archivo_cache)
 
-    sec = "".join(f"""<article>
+    def secundaria(n):
+        return f"""<article>
 {foto(n)}
 <div class="texto">
 <div class="meta">{etiqueta(n)}<span>{fecha_corta(n["dt"])}</span></div>
@@ -315,9 +316,13 @@ def portada(noticias, hoy, paginas_archivo_cache=()):
 <p>{e(n.get("resumen") or n["entradilla"])}</p>
 <p class="fuente">Fuente: {e(nombres_fuentes(n))}</p>
 </div>
-</article>""" for n in secundarias)
+</article>"""
+
+    bajo = f'<div class="secundarias bajo-principal">{secundaria(secundarias[0])}</div>' if secundarias else ""
+    sec = "".join(secundaria(n) for n in secundarias[1:])
 
     cuerpo = f"""<section class="apertura">
+<div class="columna-principal">
 <article class="principal">
 {video(principal) if principal.get("video") else foto(principal)}
 <div class="meta">{etiqueta(principal)}<span>{fecha_corta(principal["dt"])}</span></div>
@@ -325,6 +330,8 @@ def portada(noticias, hoy, paginas_archivo_cache=()):
 <p class="entradilla">{e(principal["entradilla"])}</p>
 <p class="fuente">Fuente: {e(nombres_fuentes(principal))}</p>
 </article>
+{bajo}
+</div>
 <div class="secundarias">{sec}</div>
 </section>"""
     if ultimas:

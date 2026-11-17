@@ -73,7 +73,12 @@ main.ancho { padding-top: 32px; display: flex; flex-direction: column; gap: 56px
 
 /* Apertura */
 .apertura { display: flex; flex-wrap: wrap; gap: 36px; }
-.principal { flex: 999 1 560px; min-width: 0; display: flex; flex-direction: column; gap: 16px; }
+.columna-principal { flex: 999 1 560px; min-width: 0; display: flex; flex-direction: column; gap: 28px; }
+.principal { display: flex; flex-direction: column; gap: 16px; }
+.secundarias.bajo-principal { flex: none; border-top: 1px solid var(--linea); padding-top: 28px; }
+.secundarias.bajo-principal article { flex-direction: row; flex-wrap: wrap; gap: 20px; }
+.secundarias.bajo-principal .foto { flex: 1 1 260px; max-width: 340px; align-self: flex-start; }
+.secundarias.bajo-principal .texto { flex: 2 1 300px; min-width: 0; }
 .principal h1 { font-family: var(--serif); font-weight: 600; font-size: clamp(30px, 4.4vw, 44px); line-height: 1.1; letter-spacing: -0.01em; color: var(--naranja); text-wrap: balance; }
 .principal .entradilla { font-size: 18px; color: var(--tinta-2); max-width: 62ch; }
 .secundarias { flex: 1 1 340px; min-width: 0; display: flex; flex-direction: column; }

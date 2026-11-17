@@ -265,7 +265,8 @@ def trozos(lista, tam):
 
 def en_portada(noticias):
     """Las noticias que salen en la portada (apertura, secundarias y «Lo último»)."""
-    sin_trailers = [n for n in noticias if n["seccion"] != "trailers"]
+    # Los tráilers van en su columna, salvo que se fijen a mano en la apertura o las secundarias.
+    sin_trailers = [n for n in noticias if n["seccion"] != "trailers" or n.get("portada")]
     principal = next((n for n in sin_trailers if n.get("portada") == 1), None) or (sin_trailers[0] if sin_trailers else None)
     if not principal:
         return []
@@ -301,7 +302,8 @@ def paginas_archivo(noticias, hoy):
 
 
 def portada(noticias, hoy, paginas_archivo_cache=()):
-    sin_trailers = [n for n in noticias if n["seccion"] != "trailers"]
+    # Los tráilers van en su columna, salvo que se fijen a mano en la apertura o las secundarias.
+    sin_trailers = [n for n in noticias if n["seccion"] != "trailers" or n.get("portada")]
     principal = next((n for n in sin_trailers if n.get("portada") == 1), None) or (sin_trailers[0] if sin_trailers else None)
     if not principal:
         return pagina("La Contraportada — Noticias de cine y series", "Noticias de cine y series.", '<p class="vacio">Todavía no hay noticias.</p>', "portada", "/", hoy)
@@ -313,7 +315,8 @@ def portada(noticias, hoy, paginas_archivo_cache=()):
         if n not in secundarias:
             secundarias.append(n)
     ultimas = [n for n in resto if n not in secundarias][:EN_PORTADA]
-    trailers = [n for n in noticias if n["seccion"] == "trailers"][:4]
+    arriba = [principal] + secundarias
+    trailers = [n for n in noticias if n["seccion"] == "trailers" and n not in arriba][:4]
     total_paginas = 1 + len(paginas_archivo_cache)
 
     def secundaria(n):

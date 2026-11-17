@@ -39,7 +39,7 @@ Se publica con GitHub Pages en https://contraportada.lascontraluces.com (rama `m
 }
 ```
 
-- `portada`: `1` para la noticia de apertura (solo una), `2` para las tres secundarias. Si se omite, entra por fecha en «Lo último». Al publicar una apertura nueva, quitar el `portada` de la anterior.
+- `portada`: `1` para la noticia de apertura (solo una), `2` para las tres secundarias. Si se omite, entra por fecha en «Lo último». Al publicar una apertura nueva, quitar el `portada` de la anterior. Los tráilers normalmente van en la columna «Tráilers de la semana», pero si llevan `portada` salen en la apertura o las secundarias, con el vídeo en lugar de la foto.
 - En tráilers el titular es solo el título de la película o serie entre comillas angulares.
 - `fecha` en hora de Madrid.
 

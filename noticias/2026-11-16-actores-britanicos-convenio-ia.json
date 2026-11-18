@@ -4,13 +4,20 @@
   "fecha": "2026-11-16T07:00",
   "entradilla": "Equity y los productores llevaban casi tres años negociando. Sube un 24 % el sueldo en películas de más de 50 millones de libras.",
   "cuerpo": [
-    "El sindicato británico de actores, Equity, va a someter a votación de sus afiliados la oferta final de Pact, la patronal de los productores. Las dos partes se sentaron a negociar hace casi tres años.",
-    "El acuerdo se aplicaría del 1 de enero de 2027 al 31 de diciembre de 2029. Incluye una subida del 24 % en tres años para las películas con presupuesto superior a 50 millones de libras, compensaciones por la explotación en plataformas, normas para las pruebas grabadas en casa y cláusulas sobre inteligencia artificial, que según Deadline han sido el punto que más ha retrasado la firma."
+    "El sindicato británico de actores, Equity, recomienda a sus afiliados votar a favor de la oferta final de Pact, la patronal de los productores. Las dos partes llevaban casi tres años negociando, con varias amenazas de huelga por el camino.",
+    "El acuerdo se aplicaría del 1 de enero de 2027 al 31 de diciembre de 2029. En las películas con presupuesto superior a 50 millones de libras, la subida es del 24 % en tres años (un 17 % el primero). En las de entre 30 y 50 millones, del 13 % (un 7 % el primero). En televisión sube un 9 %, un 3 % anual.",
+    "Las cláusulas sobre inteligencia artificial, que según Deadline han sido el punto que más ha retrasado la firma, cubren las réplicas digitales, los cambios en una interpretación, las interpretaciones sintéticas y las licencias para entrenar IA. Los productores no podrán obtener un consentimiento general para usar la réplica digital de un actor, y harán falta su permiso para réplicas o alteraciones que cambien de forma sustancial escenas con cláusula de desnudo. El sindicato no ha logrado protecciones contractuales para borrar las réplicas digitales ni para los escaneos que se usan en efectos visuales.",
+    "En plataformas, los pagos por uso suben tres puntos porcentuales cuando una serie tiene una segunda ventana de emisión, y el periodo en que se aplican baja de 15 a 10 años. El sindicato dice que eso puede suponer una subida real de hasta el 50 %. También hay aviso de 72 horas para las pruebas grabadas en casa, principios contra el acoso, con formación y denuncia, y una cláusula verde de sostenibilidad.",
+    "El secretario general, Paul W. Fleming, califica el acuerdo de «revolucionario» y dice que han logrado «las mejores cláusulas sobre IA del sector». Las condiciones de las plataformas estadounidenses se tratarán en futuras negociaciones, una vez cerrado el acuerdo con Pact."
   ],
   "fuentes": [
     {
       "nombre": "Deadline",
       "url": "https://deadline.com/2026/11/equity-pact-deal-offer-ai-provisions-streamer-residuals-1237222636/"
+    },
+    {
+      "nombre": "Journal Arta",
+      "url": "https://journalarta.com/en/2026/11/16/equity-pact-uk-actors-ai-pay-deal/"
     }
   ],
   "imagen": "/imagenes/actores-britanicos-equity.jpg",

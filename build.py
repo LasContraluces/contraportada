@@ -265,13 +265,19 @@ def trozos(lista, tam):
     return [lista[i:i + tam] for i in range(0, len(lista), tam)] or [[]]
 
 
-def en_portada(noticias):
-    """Las noticias que salen en la portada (apertura, secundarias y «Lo último»)."""
-    # Los tráilers van en su columna, salvo que se fijen a mano en la apertura o las secundarias.
-    sin_trailers = [n for n in noticias if n["seccion"] != "trailers" or n.get("portada")]
+def orden_ultimo(n):
+    """Las noticias que salen de la apertura o las secundarias llevan «bajada» (hora en que se quitaron)
+    y entran las primeras en «Lo último», con esa hora en lugar de la de publicación."""
+    return datetime.fromisoformat(n["bajada"]) if n.get("bajada") else n["dt"]
+
+
+def reparto_portada(noticias):
+    """Apertura, secundarias y «Lo último». Los tráilers van en su columna, salvo que se fijen a mano
+    en la apertura o las secundarias, o que acaben de salir de ellas (campo «bajada»)."""
+    sin_trailers = [n for n in noticias if n["seccion"] != "trailers" or n.get("portada") or n.get("bajada")]
     principal = next((n for n in sin_trailers if n.get("portada") == 1), None) or (sin_trailers[0] if sin_trailers else None)
     if not principal:
-        return []
+        return None, [], []
     resto = [n for n in sin_trailers if n is not principal]
     secundarias = [n for n in resto if n.get("portada") == 2][:3]
     for n in resto:
@@ -279,8 +285,14 @@ def en_portada(noticias):
             break
         if n not in secundarias:
             secundarias.append(n)
-    ultimas = [n for n in resto if n not in secundarias][:EN_PORTADA]
-    return [principal] + secundarias + ultimas
+    ultimas = sorted((n for n in resto if n not in secundarias), key=orden_ultimo, reverse=True)[:EN_PORTADA]
+    return principal, secundarias, ultimas
+
+
+def en_portada(noticias):
+    """Las noticias que salen en la portada (apertura, secundarias y «Lo último»)."""
+    principal, secundarias, ultimas = reparto_portada(noticias)
+    return [principal] + secundarias + ultimas if principal else []
 
 
 def paginas_archivo(noticias, hoy):
@@ -304,21 +316,11 @@ def paginas_archivo(noticias, hoy):
 
 
 def portada(noticias, hoy, paginas_archivo_cache=()):
-    # Los tráilers van en su columna, salvo que se fijen a mano en la apertura o las secundarias.
-    sin_trailers = [n for n in noticias if n["seccion"] != "trailers" or n.get("portada")]
-    principal = next((n for n in sin_trailers if n.get("portada") == 1), None) or (sin_trailers[0] if sin_trailers else None)
+    principal, secundarias, ultimas = reparto_portada(noticias)
     if not principal:
         return pagina("La Contraportada — Noticias de cine y series", "Noticias de cine y series.", '<p class="vacio">Todavía no hay noticias.</p>', "portada", "/", hoy)
-    resto = [n for n in sin_trailers if n is not principal]
-    secundarias = [n for n in resto if n.get("portada") == 2][:3]
-    for n in resto:
-        if len(secundarias) >= 3:
-            break
-        if n not in secundarias:
-            secundarias.append(n)
-    ultimas = [n for n in resto if n not in secundarias][:EN_PORTADA]
     arriba = [principal] + secundarias
-    trailers = [n for n in noticias if n["seccion"] == "trailers" and n not in arriba][:4]
+    trailers = [n for n in noticias if n["seccion"] == "trailers" and n not in arriba and n not in ultimas][:4]
     total_paginas = 1 + len(paginas_archivo_cache)
 
     def secundaria(n):

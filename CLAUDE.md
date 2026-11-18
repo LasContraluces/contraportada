@@ -62,7 +62,7 @@ Temas: estrenos de cine, series y plataformas. Cada noticia lleva enlace a la fu
 
 - Castellano natural y directo, frases cortas. Nada de «marca un punto de inflexión», «pone de manifiesto» ni lenguaje promocional. Sin emojis.
 - Contar el hecho con datos concretos (cifras, nombres, fechas) y parar. No añadir análisis ni conclusiones.
-- Redacción propia: no traducir ni calcar el artículo original. Entre uno y tres párrafos breves; quien quiera más, que vaya a la fuente. Como mucho una cita textual corta por fuente.
+- Noticias completas con redacción propia: incluir todos los datos de la fuente (nombres, cargos, cifras, fechas, plataformas, productoras, trabajos anteriores, antecedentes), pero contados con frases propias y en un orden propio. No traducir ni calcar el artículo, ni seguir su estructura párrafo a párrafo. Hasta cinco o seis párrafos si la noticia lo da; si da para menos, menos. Como mucho una cita textual corta por fuente. Se deja fuera lo que no es de la noticia: enlaces a «historias relacionadas», representantes y agencias, publicidad.
 - Títulos de películas y series entre «comillas angulares», con el título español si está confirmado.
 - Si un dato no está en la fuente, no se pone. Rumores y negociaciones se cuentan como tales, diciendo quién lo publica.
 

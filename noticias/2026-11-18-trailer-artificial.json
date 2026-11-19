@@ -2,7 +2,6 @@
   "titulo": "«Artificial»",
   "seccion": "trailers",
   "fecha": "2026-11-18T21:00",
-  "portada": 1,
   "entradilla": "Neon ha publicado el tráiler completo de la película de Luca Guadagnino sobre OpenAI, con Andrew Garfield como Sam Altman. Llega a algunos cines de Estados Unidos el 25 de diciembre y se amplía a todo el país el 8 de enero.",
   "resumen": "Tráiler completo de la película de Luca Guadagnino sobre OpenAI, con Andrew Garfield como Sam Altman.",
   "cuerpo": [
@@ -24,5 +23,6 @@
       "nombre": "Screen Daily",
       "url": "https://www.screendaily.com/news/neon-sets-us-release-for-luca-guadagninos-openai-film-artificial/5220191.article"
     }
-  ]
+  ],
+  "bajada": "2026-11-19T08:29"
 }

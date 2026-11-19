@@ -321,7 +321,7 @@ def portada(noticias, hoy, paginas_archivo_cache=()):
     if not principal:
         return pagina("La Contraportada — Noticias de cine y series", "Noticias de cine y series.", '<p class="vacio">Todavía no hay noticias.</p>', "portada", "/", hoy)
     arriba = [principal] + secundarias
-    trailers = [n for n in noticias if n["seccion"] == "trailers" and n not in arriba and n not in ultimas][:4]
+    trailers = [n for n in noticias if n["seccion"] == "trailers"][:4]
     total_paginas = 1 + len(paginas_archivo_cache)
 
     def secundaria(n):

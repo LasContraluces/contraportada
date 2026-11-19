@@ -322,6 +322,10 @@ def portada(noticias, hoy, paginas_archivo_cache=()):
         return pagina("La Contraportada — Noticias de cine y series", "Noticias de cine y series.", '<p class="vacio">Todavía no hay noticias.</p>', "portada", "/", hoy)
     arriba = [principal] + secundarias
     trailers = [n for n in noticias if n["seccion"] == "trailers"][:4]
+    # Noticias que no son de la sección tráilers pero con vídeo, fijadas a mano en la 4.ª posición de la columna
+    for n in [n for n in noticias if n.get("columna_trailers") and n["seccion"] != "trailers"]:
+        trailers.insert(3, n)
+    trailers = trailers[:4]
     total_paginas = 1 + len(paginas_archivo_cache)
 
     def secundaria(n):

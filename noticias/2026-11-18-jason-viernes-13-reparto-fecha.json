@@ -2,7 +2,6 @@
   "titulo": "«Jason», el nuevo «Viernes 13», termina hoy el rodaje y se estrena el 13 de agosto de 2027",
   "seccion": "cine",
   "fecha": "2026-11-18T12:00",
-  "portada": 2,
   "entradilla": "La primera película de la saga en casi dos décadas se titula «Jason» y la dirige Steve Miner. Cineverse la distribuirá en Norteamérica.",
   "cuerpo": [
     "La nueva película de «Viernes 13» se titula «Jason» y termina hoy su rodaje. Se estrenará en cines en todo el mundo el viernes 13 de agosto de 2027, y Cineverse se encargará de la distribución en Norteamérica. Es la primera entrega de la saga en casi veinte años y la decimotercera en total.",
@@ -19,5 +18,6 @@
       "nombre": "Deadline",
       "url": "https://deadline.com/2026/11/new-friday-13-movie-jason-cast-release-date-title-1237226827/"
     }
-  ]
+  ],
+  "bajada": "2026-11-19T08:33"
 }

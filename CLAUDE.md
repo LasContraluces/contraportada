@@ -83,3 +83,5 @@ Salen de estos sitios, y de ninguno más:
 - Nunca fotos de los medios (Deadline, Variety...) ni de agencias.
 - Fotos de personas (actores, directores...): se pueden poner cuando Jose las pasa. Van con `imagen` y `credito_imagen`, con el crédito que él indique.
 - `imagen` y `credito_imagen` permiten poner a mano una foto concreta; solo si Jose la pasa o lo pide.
+
+- Regla de Jose para la portada: si no dice nada, las noticias nuevas entran en portada (secundarias, `portada: 2`) y las anteriores bajan a «Lo último» con su `bajada`. Si dice «a lo último», la noticia va sin `portada`.

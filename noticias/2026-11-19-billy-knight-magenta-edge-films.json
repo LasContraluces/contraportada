@@ -2,7 +2,6 @@
   "titulo": "Magenta Edge Films compra «Billy Knight», con Al Pacino y Charlie Heaton, para estrenarla en EE. UU. el 8 de enero",
   "seccion": "cine",
   "fecha": "2026-11-19T08:33",
-  "portada": 2,
   "entradilla": "Magenta Edge Films se ha hecho con los derechos para Norteamérica de «Billy Knight», un drama romántico de fantasía con Al Pacino, Charlie Heaton y Diana Silvers. Se estrenará en cines de todo Estados Unidos el 8 de enero de 2027.",
   "cuerpo": [
     "Magenta Edge Films ha comprado los derechos para Norteamérica de «Billy Knight», un drama romántico de fantasía, según ha sabido Deadline. Lo protagonizan Charlie Heaton, Al Pacino, Diana Silvers y Patrick Schwarzenegger. Está previsto un estreno en cines de todo Estados Unidos el 8 de enero de 2027.",
@@ -19,5 +18,6 @@
       "url": "https://deadline.com/2026/11/charlie-heaton-al-pacino-billy-knight-1237227001"
     }
   ],
-  "columna_trailers": true
+  "columna_trailers": true,
+  "bajada": "2026-11-20T08:25"
 }

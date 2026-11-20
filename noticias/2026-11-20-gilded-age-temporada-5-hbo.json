@@ -1,7 +1,6 @@
 {
   "titulo": "HBO renueva «The Gilded Age» por una quinta temporada",
   "seccion": "series",
-  "portada": 2,
   "entradilla": "La serie de Julian Fellowes seguirá en HBO. Todavía no hay fecha de estreno.",
   "cuerpo": [
     "HBO ha renovado «The Gilded Age» por una quinta temporada, según TVLine. De momento no se han dado fecha de estreno ni número de episodios.",
@@ -18,5 +17,6 @@
       "url": "https://www.tvline.com/2322091/the-gilded-age-season-5-renewed-hbo/"
     }
   ],
-  "fecha": "2026-11-20T08:19"
+  "fecha": "2026-11-20T08:19",
+  "bajada": "2026-11-20T20:05"
 }

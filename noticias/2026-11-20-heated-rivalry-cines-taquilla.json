@@ -1,7 +1,6 @@
 {
   "titulo": "«Heated Rivalry» supera los 2,2 millones en cines y sube a la taquilla de Norteamérica",
   "seccion": "series",
-  "portada": 2,
   "entradilla": "Los seis episodios de la primera temporada se proyectan en salas por su primer aniversario. La serie ya está renovada para una tercera temporada.",
   "cuerpo": [
     "«Heated Rivalry» ha recaudado más de 2,2 millones de dólares en todo el mundo con una proyección limitada en cines de los seis episodios de su primera temporada, para celebrar el primer aniversario de la serie, según Collider. El lunes 16 de noviembre la venta de entradas subió un 196 % respecto al día anterior, en el mismo número de salas, y un 94 % en la semana. Entró en el top 10 de la taquilla norteamericana.",
@@ -17,5 +16,6 @@
       "url": "https://collider.com/heated-rivalry-theatrical-box-office-2-million/"
     }
   ],
-  "fecha": "2026-11-20T20:03"
+  "fecha": "2026-11-20T20:03",
+  "bajada": "2026-11-21T14:01"
 }

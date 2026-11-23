@@ -15,10 +15,6 @@
   "pie_imagen": "Imagen de «Avengers: Doomsday»",
   "fuentes": [
     {
-      "nombre": "Vídeo de Marvel y Disney en Instagram",
-      "url": "https://www.instagram.com/reels/DgEIM1quijm/"
-    },
-    {
       "nombre": "TheWrap",
       "url": "https://www.thewrap.com/creative-content/movies/hailee-steinfeld-will-be-in-avengers-doomsday/"
     },
@@ -26,5 +22,9 @@
       "nombre": "TheWrap («Hexed»)",
       "url": "https://www.thewrap.com/creative-content/movies/hexed-hailee-steinfeld-rashida-jones/"
     }
-  ]
+  ],
+  "enlace_video": {
+    "texto": "Ver el vídeo de Hailee Steinfeld en Instagram",
+    "url": "https://www.instagram.com/reels/DgEIM1quijm/"
+  }
 }

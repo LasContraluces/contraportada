@@ -393,6 +393,9 @@ def paginas_seccion(clave, noticias, hoy):
 def pagina_noticia(n, noticias, hoy):
     parrafos = "".join(f"<p>{e(p)}</p>" for p in n.get("cuerpo", []))
     fuentes = ", ".join(f'<a href="{e(f["url"])}" rel="noopener">{e(f["nombre"])}</a>' for f in n.get("fuentes", []))
+    ev = n.get("enlace_video")
+    if ev:
+        parrafos += f'<p class="enlace-video"><a href="{e(ev["url"])}" rel="noopener">{e(ev["texto"])}</a></p>'
     otras = [o for o in noticias if o is not n][:3]
     if n.get("video"):
         medio = video(n)

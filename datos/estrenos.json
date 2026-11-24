@@ -3,13 +3,43 @@
   "lista": [
     {
       "dia": "25 nov",
+      "titulo": "Hexed",
+      "donde": "cines"
+    },
+    {
+      "dia": "25 nov",
+      "titulo": "Focker-In-Law",
+      "donde": "cines"
+    },
+    {
+      "dia": "25 nov",
+      "titulo": "The Further Mis-Adventures of Cliff Booth",
+      "donde": "cines"
+    },
+    {
+      "dia": "25 nov",
       "titulo": "Blade Runner 2099",
       "donde": "Prime Video"
+    },
+    {
+      "dia": "25 nov",
+      "titulo": "The Mosquito Bowl",
+      "donde": "Netflix"
+    },
+    {
+      "dia": "25 nov",
+      "titulo": "Way of the Warrior Kid",
+      "donde": "Apple TV"
     },
     {
       "dia": "26 nov",
       "titulo": "The Hunting Wives, temporada 2",
       "donde": "Netflix"
+    },
+    {
+      "dia": "27 nov",
+      "titulo": "The Magic Faraway Tree",
+      "donde": "HBO Max"
     }
   ]
 }

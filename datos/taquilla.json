@@ -1,26 +1,26 @@
 {
-  "periodo": "Fin de semana del 13 al 15 de noviembre, en millones de dólares",
-  "fuente": "Gold Derby",
+  "periodo": "Fin de semana del 20 al 22 de noviembre, en millones de dólares",
+  "fuente": "The Numbers",
   "lista": [
     {
+      "titulo": "The Hunger Games: Sunrise on the Reaping",
+      "cifra": "119,3"
+    },
+    {
+      "titulo": "I Play Rocky",
+      "cifra": "9,3"
+    },
+    {
       "titulo": "Ebenezer",
-      "cifra": "19,0"
+      "cifra": "7,8"
     },
     {
       "titulo": "The Cat in the Hat",
-      "cifra": "11,4"
+      "cifra": "6,7"
     },
     {
       "titulo": "Godzilla Minus Zero",
-      "cifra": "5,9"
-    },
-    {
-      "titulo": "You Can See Everything",
-      "cifra": "5,5"
-    },
-    {
-      "titulo": "How to Rob a Bank",
-      "cifra": "5,2"
+      "cifra": "2,8"
     }
   ]
 }

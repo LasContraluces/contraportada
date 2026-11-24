@@ -1,19 +1,19 @@
 {
   "lista": [
     {
-      "titulo": "Coyote vs. Acme",
-      "frase": "Un juicio contra Acme que llegó por los pelos",
-      "url": "https://lascontraluces.com/reviews/coyote-vs-acme.html"
+      "titulo": "Los juegos del hambre: En llamas",
+      "frase": "Una nueva vuelta a la arena con más cosas en juego",
+      "url": "https://lascontraluces.com/reviews/los-juegos-del-hambre-en-llamas.html"
     },
     {
-      "titulo": "Primetime",
-      "frase": "Una historia bastante extraña detrás de las cámaras",
-      "url": "https://lascontraluces.com/reviews/primetime.html"
+      "titulo": "Los juegos del hambre",
+      "frase": "La primera visita a Panem sigue siendo la mejor",
+      "url": "https://lascontraluces.com/reviews/los-juegos-del-hambre.html"
     },
     {
-      "titulo": "Hope",
-      "frase": "Dos horas y media persiguiendo a algo que no deja de correr",
-      "url": "https://lascontraluces.com/reviews/hope.html"
+      "titulo": "Motor City",
+      "frase": "Una película de acción que prefiere callarse",
+      "url": "https://lascontraluces.com/reviews/motor-city.html"
     }
   ]
 }

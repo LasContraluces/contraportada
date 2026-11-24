@@ -2,7 +2,6 @@
   "titulo": "«Avengers: Doomsday»",
   "seccion": "trailers",
   "fecha": "2026-11-23T15:09",
-  "portada": 1,
   "entradilla": "Marvel Studios publica el tráiler final de la película de los hermanos Russo, que llega a los cines el 18 de diciembre.",
   "cuerpo": [
     "Marvel Studios ha publicado el tráiler final de «Avengers: Doomsday». Llega después del primer tráiler completo, del 20 de julio, y de dos fechas de lanzamiento que no se cumplieron, el 16 y el 18 de noviembre. Hayley Atwell había adelantado que saldría hoy, lunes 23.",
@@ -18,5 +17,6 @@
       "nombre": "Marvel Studios (YouTube)",
       "url": "https://www.youtube.com/watch?v=Wb8Tq_HD4E8"
     }
-  ]
+  ],
+  "bajada": "2026-11-24T20:15"
 }

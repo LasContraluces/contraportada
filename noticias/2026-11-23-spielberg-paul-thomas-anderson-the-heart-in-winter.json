@@ -2,7 +2,6 @@
   "titulo": "Steven Spielberg dirigirá un western escrito por Paul Thomas Anderson",
   "seccion": "cine",
   "fecha": "2026-11-23T19:20",
-  "portada": 2,
   "entradilla": "«The Heart in Winter», adaptación de la novela de Kevin Barry, juntará a Jessie Buckley, Cillian Murphy y Mark Rylance en Focus Features.",
   "cuerpo": [
     "Steven Spielberg dirigirá «The Heart in Winter», un western con guion de Paul Thomas Anderson. Lo adelantó Deadline. Será el primer western que dirige Spielberg y la primera vez que Anderson firma un guion para otro director. Anderson ya había hecho reescrituras sin acreditar en «Los asesinos de la luna», de Martin Scorsese, y en «Napoleón», de Ridley Scott.",
@@ -19,5 +18,6 @@
       "nombre": "TheWrap",
       "url": "https://www.thewrap.com/creative-content/movies/steven-spielberg-the-heart-in-winter-paul-thomas-anderson-cast/"
     }
-  ]
+  ],
+  "bajada": "2026-11-24T08:50"
 }

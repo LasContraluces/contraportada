@@ -2,7 +2,6 @@
   "titulo": "Las previsiones sitúan «Avengers: Doomsday» entre 375 y 424 millones en su estreno en EE. UU.",
   "seccion": "taquilla",
   "fecha": "2026-11-25T08:36",
-  "portada": 1,
   "entradilla": "La web de seguimiento Box Office Theory calcula que la película de Marvel podría superar el récord de fin de semana de estreno, que tiene «Spider-Man: Brand New Day» con 360 millones.",
   "resumen": "Box Office Theory prevé entre 375 y 424 millones de dólares en Norteamérica el primer fin de semana de la película.",
   "cuerpo": [
@@ -18,5 +17,6 @@
       "nombre": "SlashFilm",
       "url": "https://www.slashfilm.com/2326965/marvel-avengers-doomsday-box-office-preview/"
     }
-  ]
+  ],
+  "bajada": "2026-11-26T07:00"
 }

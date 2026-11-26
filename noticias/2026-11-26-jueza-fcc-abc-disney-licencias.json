@@ -1,0 +1,20 @@
+{
+  "titulo": "Una jueza frena la renovación anticipada de licencias que el regulador de EE. UU. exigió a ABC",
+  "seccion": "industria",
+  "fecha": "2026-11-26T07:00",
+  "entradilla": "La magistrada ve probable que ABC y Disney demuestren que la Administración Trump actuó como represalia, y mantiene viva su demanda.",
+  "cuerpo": [
+    "La jueza federal Loren L. AliKhan ha concedido a ABC y Disney una medida cautelar contra la FCC, el regulador de las comunicaciones de Estados Unidos, y ha rechazado la petición de este organismo para archivar la demanda de las dos compañías.",
+    "Según la resolución, es probable que las empresas puedan demostrar que la Administración Trump usó la renovación anticipada para castigar a ABC por informaciones y programas que le desagradaban. La jueza considera que han aportado pruebas sustanciales de que la medida respondió, al menos en parte, a una represalia contra expresiones protegidas por la Primera Enmienda.",
+    "En abril, la FCC ordenó a ABC pedir antes de tiempo la renovación de las licencias de las ocho emisoras locales propiedad de Disney, que no vencían hasta 2028 como pronto. El plazo terminaba el 28 de mayo. La orden llegó cuando Donald Trump presionaba a la cadena para que despidiera a Jimmy Kimmel y su Gobierno criticaba en público «Jimmy Kimmel Live!» y «The View».",
+    "La FCC había pedido en septiembre el archivo del caso. Alegaba que el tribunal no era competente y que la cadena no había probado la represalia. Tras el fallo, un portavoz del organismo ha asegurado que seguirá «los hechos y la ley»."
+  ],
+  "imagen": "/imagenes/abc-logo.jpg",
+  "pie_imagen": "Logotipo de ABC",
+  "fuentes": [
+    {
+      "nombre": "TheWrap",
+      "url": "https://www.thewrap.com/media-platforms/tv/judge-halts-abc-early-license-renewal-order-spikes-fcc-dismissal-of-disneys-free-speech-suit/"
+    }
+  ]
+}

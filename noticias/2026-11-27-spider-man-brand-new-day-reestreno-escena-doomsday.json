@@ -2,7 +2,6 @@
   "titulo": "«Spider-Man: Brand New Day» vuelve a los cines el 4 de diciembre con una escena eliminada de «Avengers: Doomsday»",
   "seccion": "cine",
   "fecha": "2026-11-27T15:26",
-  "portada": 2,
   "entradilla": "Sony repondrá la película por tiempo limitado con material añadido, dos semanas antes del estreno de la nueva entrega de los Vengadores.",
   "cuerpo": [
     "La nueva versión incluye al final una escena extra que se quedó fuera de «Avengers: Doomsday». La información parte de The New York Times.",
@@ -23,5 +22,6 @@
       "nombre": "ComicBook",
       "url": "https://comicbook.com/movies/news/spider-man-brand-new-days-encore-extended-cut-will-include-cut-avengers-doomsday-scene/"
     }
-  ]
+  ],
+  "bajada": "2026-11-28T09:55"
 }
